@@ -8,13 +8,14 @@ int tropas;
 };
 
 int main(){
-printf("Bem vindo ao jogo War, estruturado em dados.\n");
+printf("Bem vindo ao projeto War, estruturado em dados.\n");
 
 // Recebimentos dos dados de cada território
-struct Territorio territorios[5];
-for(int i = 0; i <5; i++){
+struct Territorio *territorios;
+territorios = (struct Territorio*) calloc(5, sizeof(struct Territorio)); // Criação de ponteiro para territorios
 
-printf("Cadastro do território:\n");
+for(int i = 0; i <5; i++){
+printf("Cadastro do território:\n", i + 1);
 
 printf("Digite o nome do território:\n");
 scanf("%s", territorios[i].nome);
@@ -24,6 +25,8 @@ scanf("%s", territorios[i].cor);
 
 printf("Digite o número de tropas deste território:\n");
 scanf("%d", &territorios[i].tropas);
+
+printf("\n"); //Só pela organização
 }
 
 //Exibindo dados recebidos
